@@ -19,7 +19,8 @@ int ln_sign(bigInt self); // return -1 if bigInt < 0, else 1
 bigInt ln_abs(bigInt self); //return an absolute value of bigInt
 
 bigInt ln_op(bigInt num1, char oper, bigInt num2);
-	//performs an arithmetic operation with bigInt numbers
+bigInt in_op(bigInt num1, char oper, long long num2);
+	//performs an arithmetic operation with two numbers numbers
 	//operations:
 	//	+: addition 
 	//	-: subtraction 
@@ -30,8 +31,6 @@ bigInt ln_op(bigInt num1, char oper, bigInt num2);
 	// bigInt res = ln_op(a, '-', b);
 	// ln_print(res) -> 111111
 
-
-// bigInt in_op(bigInt num1, char oper, bigInt num2);
 
 int ln_cmp(bigInt num1, char oper, bigInt num2);
 int in_cmp(bigInt num1, char oper, long long num2);

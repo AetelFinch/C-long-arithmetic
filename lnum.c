@@ -172,6 +172,12 @@ bigInt ln_toBig(long long num)
 
 void ln_print(bigInt self)
 {
+	if (self->length == 1 && self->number[0] == 0)
+	{
+		printf("0");
+		return;
+	}
+
 	if (self->sign == -1)
 		printf("-");
 
@@ -684,6 +690,12 @@ bigInt ln_op(bigInt num1, char oper, bigInt num2)
 	}
 }
 
+bigInt in_op(bigInt num1, char oper, long long num)
+{
+	bigInt num2 = ln_toBig(num);
+	ln_op(num1, oper, num2);
+}
+
 // void exponentiation(bigInt num1, int pow, bigInt ans)
 // {
 // 	while (pow)
@@ -734,21 +746,3 @@ bigInt ln_op(bigInt num1, char oper, bigInt num2)
 // 	return ans;
 // }
 
-// bigInt in_op(long long num1, char oper, long long num2)
-// {
-// 	switch (oper)
-// 	{
-// 		case '+':
-// 			return iadd(num1, num2);
-// 		case '-':
-// 			return isub(num1, num2);
-// 		case '*':
-// 		 	return imul(num1, num2);
-// 		case '/':
-// 			return idiv(num1, num2); 
-// 		case '%':
-// 			return imod(num1, num2);
-// 		case '^':
-// 			return ipow(num1, num2);
-// 	}
-// }
