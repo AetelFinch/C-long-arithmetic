@@ -6,6 +6,7 @@
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 #define IN_ABS(a) ((a) < 0 ? (-a) : (a))
+#define IS_FALSE(a) ((a) ? 0 : 1)
 
 #define BASE 1000000000
 #define LEN_DIGIT 9
@@ -188,11 +189,6 @@ void ln_print(bigInt self)
 	}
 }
 
-int reverseAns(int ans)
-{
-	return (ans == 1 ? 0 : 1);
-}
-
 int isEqual(bigInt num1, bigInt num2)
 {
 	if (num1->length != num2->length)
@@ -206,7 +202,7 @@ int isEqual(bigInt num1, bigInt num2)
 
 int isNonEqual(bigInt num1, bigInt num2)
 {
-	return reverseAns(isEqual(num1, num2));
+	return IS_FALSE(isEqual(num1, num2));
 }
 
 int isGreater(bigInt num1, bigInt num2)
@@ -263,12 +259,12 @@ int isLess(bigInt num1, bigInt num2)
 
 int isGreaterOrSame(bigInt num1, bigInt num2)
 {
-	return reverseAns(isLess(num1, num2));
+	return IS_FALSE(isLess(num1, num2));
 }
 
 int isLessOrSame(bigInt num1, bigInt num2)
 {
-	return reverseAns(isGreater(num1, num2));
+	return IS_FALSE(isGreater(num1, num2));
 }
 
 int ln_cmp(bigInt num1, char oper, bigInt num2)

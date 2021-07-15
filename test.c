@@ -32,6 +32,20 @@ void check_main_functions()
 	ln_print(num5); printf("\n"); //12344312
 	ln_print(num6); printf("\n\n"); //12344312
 
+	if (ln_cmp(num1, '=', num2))
+	{
+		printf("1) num1 == num2\n");
+	}
+	if (ln_cmp(num1, '>', num3))
+	{
+		printf("2) num1 > num2\n");
+	}
+	if (ln_cmp(num4, '(', num6))
+	{
+		printf("3) num4 <= num6\n\n");
+	}
+
+
 	ln_free(num1); ln_free(num2); ln_free(num3);
 	ln_free(num4); ln_free(num5); ln_free(num6);
 
