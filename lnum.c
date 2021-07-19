@@ -11,7 +11,7 @@
 #define BASE 1000000000
 #define LEN_DIGIT 9
 #define MAX_LLD 9223372036854775807
-#define ERROR_SIZE -9223372036854775807
+#define ERROR_VALUE -9223372036854775807
 
 typedef struct lnum_s
 {
@@ -189,6 +189,18 @@ void ln_print(bigInt self)
 	}
 }
 
+int ln_len(bigInt num)
+{
+	return self->length;
+}
+
+unsigned long long ln_digit(bigInt num, int i)
+{
+	if (num->length <= i)
+		return ERROR_VALUE;
+	return num->number[i];
+}
+
 int isEqual(bigInt num1, bigInt num2)
 {
 	if (num1->length != num2->length)
@@ -345,7 +357,7 @@ long long ln_fromBig(bigInt self)
 {
 	if (in_cmp(self, '>', MAX_LLD))
 	{
-		return ERROR_SIZE;
+		return ERROR_VALUE;
 	}
 	else if (in_cmp(self, '(', MAX_LLD))
 	{
